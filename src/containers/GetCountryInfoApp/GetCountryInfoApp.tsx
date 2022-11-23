@@ -8,6 +8,7 @@ const COUNTRY_LIST_URL = "https://restcountries.com/v2/all?fields=alpha3Code,nam
 
 const GetCountryInfoApp = () => {
   const [countriesList, setCountriesList] = useState<CountryType[]>([]);
+  const [clickedCountryCode, setClickedCountryCode] = useState<string | null>(null);
 
   const fetchCountriesList = useCallback(async () => {
     const countriesListResponse = await axios.get<CountryType[]>(COUNTRY_LIST_URL);
@@ -20,7 +21,7 @@ const GetCountryInfoApp = () => {
 
   return (
     <div style={{display: "flex"}}>
-      <CountryList countries={countriesList}/>
+      <CountryList countries={countriesList} selectCountry={setClickedCountryCode}/>
       <CountryInfo/>
     </div>
   );
