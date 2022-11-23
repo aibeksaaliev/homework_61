@@ -22,7 +22,7 @@ const GetCountryInfoApp = () => {
   return (
     <div style={{display: "flex"}}>
       <CountryList countries={countriesList} selectCountry={setClickedCountryCode}/>
-      <CountryInfo/>
+      <CountryInfo code={clickedCountryCode}/>
     </div>
   );
 };
