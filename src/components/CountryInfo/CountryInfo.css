@@ -1,0 +1,32 @@
+.country_info {
+    width: 100%;
+    max-height: 600px;
+    margin: 20px 20px 0 10px;
+    padding: 20px;
+    background: white;
+    color: #121212;
+    border-radius: 5px;
+}
+
+.country_info_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.country_details span {
+    display: block;
+}
+
+.flag_box {
+    max-width: 108px;
+    max-height: 108px;
+    border-radius: 50%;
+    background: white;
+}
+
+.flag_box img {
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: 50%;
+}

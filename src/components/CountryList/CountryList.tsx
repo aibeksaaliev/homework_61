@@ -1,6 +1,7 @@
 import React from 'react';
 import {CountryType} from "../../types";
 import CountryNameCard from "../CountryInfo/CountryNameCard";
+import './CountryList.css';
 
 interface CountryListProps {
   countries: CountryType [];
@@ -9,7 +10,7 @@ interface CountryListProps {
 
 const CountryList: React.FC<CountryListProps> = ({countries, selectCountry}) => {
   return (
-    <div>
+    <div className="list">
       {countries.map(country => {
         return <CountryNameCard
           key={country.alpha3Code}

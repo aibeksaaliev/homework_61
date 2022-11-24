@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import axios from "axios";
 import {CountryDetailsType} from "../../types";
+import './CountryInfo.css';
 
 interface CountryInfoProps {
   code: string | null;
@@ -25,6 +26,8 @@ const CountryInfo: React.FC<CountryInfoProps> = ({code}) => {
 
       const bordersInfo = await Promise.all(promises);
       setBorders(bordersInfo);
+    } else {
+      setBorders(null);
     }
 
   }, [])
@@ -35,16 +38,30 @@ const CountryInfo: React.FC<CountryInfoProps> = ({code}) => {
     }
   }, [code, fetchCountryInfo])
 
-  return (
-    <div>
-      <p>{countryInfo?.name}</p>
-      <p>{countryInfo?.capital}</p>
-      <p>{countryInfo?.population}</p>
+  return countryInfo ? (
+    <div className="country_info">
+      <div className="country_info_box">
+        <div className="country_details">
+          <span>Country: {countryInfo?.name}.</span>
+          <span>Capital: {countryInfo?.capital}.</span>
+          <span>Population: {countryInfo?.population}.</span>
+          <span>Region: {countryInfo?.region}.</span>
+          <span>Subregion: {countryInfo?.subregion}.</span>
+          <span>Native name: {countryInfo?.nativeName}.</span>
+        </div>
+        <div className="flag_box">
+          <img src={countryInfo?.flag} alt=""/>
+        </div>
+      </div>
       <div>
         {borders ? borders.map( border => {
           return <span style={{display: "block"}} key={border.alpha3Code}>{border.name}</span>
         }) : null}
       </div>
+    </div>
+  ) : (
+    <div className="country_info">
+      <p>Please, select a country.</p>
     </div>
   );
 };

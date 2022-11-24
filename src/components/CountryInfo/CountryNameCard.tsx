@@ -1,4 +1,6 @@
 import React from 'react';
+import './CountryNameCard.css';
+
 
 interface CountryNameCardProps {
   countryName: string;
@@ -7,7 +9,9 @@ interface CountryNameCardProps {
 
 const CountryNameCard: React.FC<CountryNameCardProps> = ({countryName, onClickCountryName}) => {
   return (
-    <div onClick={onClickCountryName}>
+    <div
+      className="country_name"
+      onClick={onClickCountryName}>
       <span>{countryName}</span>
     </div>
   );
