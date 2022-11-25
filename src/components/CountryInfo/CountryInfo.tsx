@@ -54,6 +54,7 @@ const CountryInfo: React.FC<CountryInfoProps> = ({code}) => {
         </div>
       </div>
       <div>
+        {!borders ? <p>{countryInfo.name} has no borders.</p> : <p>Borders:</p>}
         {borders ? borders.map( border => {
           return <span style={{display: "block"}} key={border.alpha3Code}>{border.name}</span>
         }) : null}
